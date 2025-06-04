@@ -60,20 +60,15 @@ const scrollToTop = () => {
     });
   }
 
-document.querySelectorAll("#eventsContainer").forEach(function (btn) {
-    btn.addEventListener('click', function (e) {
-        thisGameId = e.target.lastChild.parentNode.attributes.data.nodeValue
-        gameUrl =  `http://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=${thisGameId}`
-        console.log(gameUrl)
-        let clickedGame = document.querySelectorAll('#gameInfoContainer')
-        clickedGame.innerHTML = renderClickedGame()
-        clickedGame.innerHTML = scrollToTop()
-        
-        
-        
-        
-    });
-    
+const eventsContainer = document.getElementById('eventsContainer');
+eventsContainer.addEventListener('click', function (e) {
+    const button = e.target.closest('button[data]');
+    if (!button) return;
+    thisGameId = button.getAttribute('data');
+    gameUrl =  `http://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=${thisGameId}`;
+    console.log(gameUrl);
+    renderClickedGame();
+    scrollToTop();
 });
 
 
