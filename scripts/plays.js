@@ -413,7 +413,7 @@ const scoringPlays = document.getElementById('scoringPlaysContainer')
         let awayPassingLeaderPosition = data?.leaders[1]?.leaders[0]?.leaders[0]?.athlete?.position?.abbreviation
         const alternateHeadshot = 'images/headshot_alternate.png'
         
-        // Alternate Home Passing headshot photo logic ******* DOES NOT WORK CURRENTLY
+        // Display fallback image when the home passer has no headshot
         if (homePassingLeaderHeadshot === null || homePassingLeaderHeadshot === undefined || !homePassingLeaderHeadshot)
         {
             const homePassingLeaders = document.getElementById('homePassingLeader')
@@ -427,7 +427,7 @@ const scoringPlays = document.getElementById('scoringPlaysContainer')
             homePassingLeaders.style.color = `#${homeTeamColor}`
             
         }
-        // Alternate Away Passing headshot photo logic ******* DOES NOT WORK CURRENTLY
+        // Display fallback image when the away passer has no headshot
         if (awayPassingLeaderHeadshot === null || awayPassingLeaderHeadshot === undefined || !awayPassingLeaderHeadshot || awayPassingLeaderHeadshot === 'http://127.0.0.1:8080/undefined')
         {
             
